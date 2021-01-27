@@ -1,3 +1,4 @@
+#include <memory>
 #ifndef CHATGUI_H_
 #define CHATGUI_H_
 
@@ -14,9 +15,10 @@ private:
     wxBitmap _image;
 
     //// STUDENT CODE
-    ////
+    //// making the _chatLogic pointer exclusive to ChatBotPanelDialog
 
-    ChatLogic *_chatLogic;
+    std::unique_ptr<ChatLogic> _chatLogic;
+    
 
     ////
     //// EOF STUDENT CODE
@@ -27,7 +29,7 @@ public:
     ~ChatBotPanelDialog();
 
     // getter / setter
-    ChatLogic *GetChatLogicHandle() { return _chatLogic; }
+    ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
 
     // events
     void paintEvent(wxPaintEvent &evt);
