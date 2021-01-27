@@ -16,13 +16,13 @@ ChatLogic::ChatLogic()
 {
     //// STUDENT CODE
     ////
-
+/*
     // create instance of chatbot
-    _chatBot = newChatBot("../images/chatbot.png");
+    _chatBot = new ChatBot("../images/chatbot.png");
 
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
     _chatBot->SetChatLogicHandle(this);
-
+*/
     ////
     //// EOF STUDENT CODE
 }
@@ -33,23 +33,23 @@ ChatLogic::~ChatLogic()
     ////
 
     // delete chatbot instance
-    
-    //if(_chatBot != NULL){
+    /*
+    if(_chatBot != NULL){
         //std::cout << "chatlogic " << _chatBot  << std::endl;
-    //    delete _chatBot; 
+        delete _chatBot; 
     //    _chatBot = NULL;
         //std::cout << "chatlogic after deconstruct " << _chatBot << std::endl;
-    //}
-
+    }
+*/
     // delete all nodes
   /* not needed once the make_unique<>() is implemented.
     for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
     {
-     //   delete *it;
+        delete *it;
     }
-*/
+
     // delete all edges
-    /*
+    
     for (auto it = std::begin(_edges); it != std::end(_edges); ++it)
     {
         delete *it;
@@ -229,8 +229,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
   chatty.SetChatLogicHandle(this); //have to set chatlogichandle
   chatty.SetRootNode(rootNode);
   
-  _chatBot->SetRootNode(rootNode);
-  //rootNode->MoveChatbotHere(std::move(chatty));
+  //_chatBot->SetRootNode(rootNode);
+  rootNode->MoveChatbotHere(std::move(chatty));
     
   
   
